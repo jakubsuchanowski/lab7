@@ -43,10 +43,10 @@ public class StudentController {
     }
 
     @CrossOrigin("http://localhost:63342")
-    @PutMapping("/students/edit/{id}")
-    public ResponseEntity<String> editStudentData(@PathVariable Long id, @RequestBody Student student){
+    @PutMapping("/students/edit")
+    public ResponseEntity<String> editStudentData(@RequestBody Student student){
         try {
-            studentService.editStudentData(student,id);
+            studentService.editStudentData(student);
             return ResponseEntity.ok().body("Student zaktualizowany");
         }catch (StudentNotFoundException exception){
             return ResponseEntity.badRequest().body(exception.getMessage());

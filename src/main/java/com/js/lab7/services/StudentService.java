@@ -30,14 +30,23 @@ public class StudentService {
         } else throw new StudentNotFoundException(id);
     }
 
-    public void editStudentData(Student student,Long id) {
-        Optional<Student> probablyStudent = studentRepository.findById(id);
+//    public void editStudentData(Student student,Long id) {
+//        Optional<Student> probablyStudent = studentRepository.findById(id);
+//        if (probablyStudent.isPresent()) {
+//            probablyStudent.get().setName(student.getName());
+//            probablyStudent.get().setSurname(student.getSurname());
+//            probablyStudent.get().setAverage(student.getAverage());
+//            studentRepository.save(probablyStudent.get());
+//        } else throw new StudentNotFoundException(id);
+//    }
+public void editStudentData(Student student) {
+        Optional<Student> probablyStudent = studentRepository.findStudentById(student.getId());
         if (probablyStudent.isPresent()) {
             probablyStudent.get().setName(student.getName());
             probablyStudent.get().setSurname(student.getSurname());
             probablyStudent.get().setAverage(student.getAverage());
             studentRepository.save(probablyStudent.get());
-        } else throw new StudentNotFoundException(id);
+        } else throw new StudentNotFoundException(student.getId());
     }
 }
 

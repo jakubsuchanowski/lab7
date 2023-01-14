@@ -67,14 +67,13 @@ function deleteStudent(){
 }
 
 function modifyStudent(){
-    console.log(response);
     const form = document.getElementById('student-form');
     var student ={};
-    var id = form.document.elements.id.value;
+    student.id = form.elements.id.value;
     student.name = form.elements.name.value;
     student.surname = form.elements.surname.value;
     student.average = form.elements.average.value;
-    fetch("http://localhost:8080/students/edit/" +id , {
+    fetch("http://localhost:8080/students/edit" , {
         method: 'PUT',
         body: JSON.stringify(student),
         headers: {

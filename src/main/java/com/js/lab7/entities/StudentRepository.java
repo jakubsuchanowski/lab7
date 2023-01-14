@@ -9,6 +9,5 @@ import com.js.lab7.entities.Student;
 import java.util.Optional;
 
 public interface StudentRepository extends CrudRepository<Student, Long> {
-    Optional<Student> findById(Long id);
-
+    Optional<Student> findStudentById(Long id);
 }
